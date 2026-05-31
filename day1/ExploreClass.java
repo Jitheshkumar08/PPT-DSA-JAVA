@@ -1,6 +1,5 @@
 package day1;
 
-// java ExploreClass Razak Vijaya Rakesh Razak Victor
 
 public class ExploreClass {
     public static void main(String[] args) {
