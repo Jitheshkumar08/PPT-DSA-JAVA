@@ -9,9 +9,9 @@ public class ThirdMaximumNumber {
         for (int num : nums) {
             long n = num;
 
-            if ((first != null && n == first) ||
-                (second != null && n == second) ||
-                (third != null && n == third)) {
+            if ((first != null && n == first)
+                    || (second != null && n == second)
+                    || (third != null && n == third)) {
                 continue;
             }
 
@@ -35,7 +35,7 @@ public class ThirdMaximumNumber {
     }
 
     public static void main(String[] args) {
-        int[] nums = {2, 2, 3, 1,5,6,9,9};
+        int[] nums = {2, 2, 3, 1, 5, 6, 9, 9};
 
         int result = thirdMax(nums);
 

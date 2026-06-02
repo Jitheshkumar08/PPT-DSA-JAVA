@@ -1,13 +1,11 @@
 
-
-
 public class RemoveDuplicates {
 
     public static int removeDuplicates(int[] nums) {
         if (nums.length == 0) {
             return 0;
         }
-        
+
         int k = 1; // position for next unique element
 
         for (int i = 1; i < nums.length; i++) {

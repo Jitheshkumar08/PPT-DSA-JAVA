@@ -1,5 +1,4 @@
 
-
 public class FindPivotIndex {
 
     public static int pivotIndex(int[] nums) {
@@ -25,7 +24,7 @@ public class FindPivotIndex {
     }
 
     public static void main(String[] args) {
-        int[] nums = {1, 7,5,7,8, 3, 6, 5, 6};
+        int[] nums = {1, 7, 5, 7, 8, 3, 6, 5, 6};
 
         int result = pivotIndex(nums);
 

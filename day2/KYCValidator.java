@@ -39,10 +39,12 @@ Email: "example@mail.c"
 
 Output:
 Invalid password, invalid email
-*/
+ */
 public class KYCValidator {
+
     // Define regex patterns
     static Map<String, String> patterns = new HashMap<>();
+
     static {
         patterns.put("name", "^[A-Za-z ]{3,}$");
         patterns.put("password", "^(?=.*[@#$!])[A-Za-z0-9?=.@#$!*]{8,}$");
@@ -50,19 +52,26 @@ public class KYCValidator {
         patterns.put("pan", "^[A-Z]{5}[0-9]{4}[A-Z]{1}$");
         patterns.put("email", "^[a-z0-9-_]{2,}@[a-z]{3,}\\.[a-z]{2,}$");
     }
+
     // Validation method
     static String validateKYC(Map<String, String> userData) {
-        boolean flag = true;
-        for (Map.Entry<String, String> entry : userData.entrySet()) {
-            String field = entry.getKey();
-            String value = entry.getValue();
+        List<String> invalidFields = new ArrayList<>();
+        String[] fieldOrder = {"name", "password", "aadhaar", "pan", "email"};
+
+        for (String field : fieldOrder) {
+            String value = userData.get(field);
             String regex = patterns.get(field);
             if (!Pattern.matches(regex, value)) {
-                System.out.println("Invalid " + field);
-                flag = false;
+                invalidFields.add("Invalid " + field);
             }
         }
-        return flag ? "Account created" : "Invalid User data";
+
+        if (invalidFields.isEmpty()) {
+            return "Account created";
+        }
+
+        System.out.println(String.join(", ", invalidFields));
+        return "Invalid User data";
     }
 
     public static void main(String[] args) {

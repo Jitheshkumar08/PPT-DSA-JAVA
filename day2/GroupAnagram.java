@@ -23,12 +23,13 @@ Output: [[""]]
 Example 3:
 Input: strs = ["a"]
 Output: [["a"]]
-*/
+ */
 public class GroupAnagram {
+
     public static void main(String[] args) {
-        String[] inp = {"eat","bat","nat","tan","ate","ant"};
+        String[] inp = {"eat", "bat", "nat", "tan", "ate", "ant"};
         Hashtable<String, ArrayList<String>> tab = new Hashtable<>();
-        for(String each:inp){
+        for (String each : inp) {
             char[] temp = each.toCharArray();
             Arrays.sort(temp);
             String key = new String(temp);
